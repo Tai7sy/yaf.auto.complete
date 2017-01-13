@@ -1053,7 +1053,7 @@ interface Yaf_View_Interface
      * @param string $name 变量名
      * @param string $value 变量值
      *
-     * @return Boolean
+     * @return Yaf_View_Interface|Boolean 成功返回Yaf_View_Simple, 失败返回FALSE
      */
     public function assign($name, $value = null);
 
@@ -3078,7 +3078,7 @@ class Yaf_View_Simple implements Yaf_View_Interface
      * @param string $tpl_dir 模板文件目录
      * @param array $options 此属性在php-5.4以下版本中适用，用以设置模板渲染的方式
      */
-    public function __construct($tpl_dir, $options){}
+    public function __construct($tpl_dir, $options = null){}
 
     /**
      * (Yaf >= 2.2.9)
@@ -3423,7 +3423,7 @@ final class Yaf_Route_Rewrite implements Yaf_Route_Interface
      * @param array $route 路由信息
      * @param array $verify
      */
-    public function __construct($match, $route, $verify){}
+    public function __construct($match, $route, $verify = NULL){}
 
     /**
      * (Yaf >= 2.2.9)
