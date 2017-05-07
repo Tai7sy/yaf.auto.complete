@@ -23,16 +23,16 @@
 namespace
 {
     define('YAF\VERSION',                   '2.2.9');
-    define('YAF\ERR\STARTUP\FAILED',        512);
-    define('YAF\ERR\ROUTE\FAILED',          513);
-    define('YAF\ERR\DISPATCH\FAILED',       514);
-    define('YAF\ERR\AUTOLOAD\FAILED',       520);
+    define('YAF\ERR\STARTUP_FAILED',        512);
+    define('YAF\ERR\ROUTE_FAILED',          513);
+    define('YAF\ERR\DISPATCH_FAILED',       514);
+    define('YAF\ERR\AUTOLOAD_FAILED',       520);
     define('YAF\ERR\NOTFOUND\MODULE',       515);
     define('YAF\ERR\NOTFOUND\CONTROLLER',   516);
     define('YAF\ERR\NOTFOUND\ACTION',       517);
     define('YAF\ERR\NOTFOUND\VIEW',         518);
-    define('YAF\ERR\CALL\FAILED',           519);
-    define('YAF\ERR\TYPE\ERROR',            521);
+    define('YAF\ERR\CALL_FAILED',           519);
+    define('YAF\ERR\TYPE_ERROR',            521);
 }
 
 namespace Yaf
@@ -1059,7 +1059,7 @@ namespace Yaf
          * @param string | array $name 变量
          * @param string $value 变量值
          *
-         * @return Boolean
+         * @return Boolean|View_Interface
          */
         public function assign($name, $value = null);
 
@@ -3048,7 +3048,7 @@ namespace Yaf\View
          * @param string $tpl_dir 模板文件目录
          * @param array $options 此属性在php-5.4以下版本中适用，用以设置模板渲染的方式
          */
-        public function __construct($tpl_dir, $options){}
+        public function __construct($tpl_dir, $options = null){}
 
         /**
          * (Yaf >= 2.2.9) 
@@ -3404,7 +3404,7 @@ namespace Yaf\Route
          * @param array $route 路由信息
          * @param array $verify
          */
-        public function __construct($match, $route, $verify){}
+        public function __construct($match, $route, $verify = NULL){}
 
         /**
          * (Yaf >= 2.2.9) 
