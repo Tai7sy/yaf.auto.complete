@@ -1444,7 +1444,7 @@ namespace Yaf
     abstract class Request_Abstract
     {
         /**
-         * (Yaf >= 2.2.9) 
+         * (Yaf >= 2.2.9)
          * 当前请求的模块名
          *
          * PHP也可以这样获取：
@@ -1455,7 +1455,7 @@ namespace Yaf
         public $module;
 
         /**
-         * (Yaf >= 2.2.9) 
+         * (Yaf >= 2.2.9)
          * 当前请求的控制器名
          *
          * PHP也可以这样获取：
@@ -1467,7 +1467,7 @@ namespace Yaf
         public $controller;
 
         /**
-         * (Yaf >= 2.2.9) 
+         * (Yaf >= 2.2.9)
          * 当前请求的动作名
          *
          * PHP也可以这样获取：
@@ -1478,7 +1478,7 @@ namespace Yaf
         public $action;
 
         /**
-         * (Yaf >= 2.2.9) 
+         * (Yaf >= 2.2.9)
          * 当前请求的方法 getMethod
          *
          * PHP也可以这样获取：
@@ -1489,7 +1489,7 @@ namespace Yaf
         public $method;
 
         /**
-         * (Yaf >= 2.2.9) 
+         * (Yaf >= 2.2.9)
          * 请求传递的参数
          *
          * PHP可以这样获取：
@@ -1500,7 +1500,7 @@ namespace Yaf
         protected $params;
 
         /**
-         * (Yaf >= 2.2.9) 
+         * (Yaf >= 2.2.9)
          * http报头中HTTP_ACCEPT_LANGUAGE的值
          *
          * PHP可以这样获取：
@@ -1511,19 +1511,19 @@ namespace Yaf
         protected $language;
 
         /**
-         * (Yaf >= 2.2.9) 
+         * (Yaf >= 2.2.9)
          * 异常对象
          *
          * 异常捕获模式下，在异常发生的情况时流程进入Error控制器的error动作时，获取当前发生的异常对象.
          * PHP可以这样获取：
          * $this->getException();
          *
-         * @var \Exception
+         * @var Exception
          */
         protected $_exception;
 
         /**
-         * (Yaf >= 2.2.9) 
+         * (Yaf >= 2.2.9)
          * 请求的Base URI（http请求 or cli模式下）
          *
          * PHP可以这样获取：
@@ -1534,7 +1534,7 @@ namespace Yaf
         protected $_base_uri;
 
         /**
-         * (Yaf >= 2.2.9) 
+         * (Yaf >= 2.2.9)
          * 请求的URI（http请求）
          *
          * PHP可以这样获取：
@@ -1545,7 +1545,7 @@ namespace Yaf
         protected $uri;
 
         /**
-         * (Yaf >= 2.2.9) 
+         * (Yaf >= 2.2.9)
          * 请求是否完成了分发，默认为0
          *
          * @var Boolean
@@ -1553,7 +1553,7 @@ namespace Yaf
         protected $dispatched;
 
         /**
-         * (Yaf >= 2.2.9) 
+         * (Yaf >= 2.2.9)
          * 请求是否完成了路由，默认为0
          *
          * @var Boolean
@@ -1561,85 +1561,90 @@ namespace Yaf
         protected $routed;
 
         /**
-         * (Yaf >= 2.2.9) 
-         * 判断是否为GET请求
+         * (Yaf >= 2.2.9)
+         * 获取当前模块名
+         *
+         * @return String
+         */
+        public function getModuleName(){}
+
+        /**
+         * (Yaf >= 2.2.9)
+         * 获取当前控制器名
+         *
+         * @return String
+         */
+        public function getControllerName(){}
+
+        /**
+         * (Yaf >= 2.2.9)
+         * 获取当前动作名
+         *
+         * @return String
+         */
+        public function getActionName(){}
+
+        /**
+         * (Yaf >= 2.2.9)
+         * 设置请求的模块名
+         *
+         * @param string $name 模块名
          *
          * @return Boolean
          */
-        public function isGet(){}
+        public function setModuleName($name){}
 
         /**
-         * (Yaf >= 2.2.9) 
-         * 判断是否为POST请求
+         * (Yaf >= 2.2.9)
+         * 设置请求的控制器名
+         *
+         * @param string $name
          *
          * @return Boolean
          */
-        public function isPost(){}
+        public function setControllerName($name){}
 
         /**
-         * (Yaf >= 2.2.9) 
-         * 判断是否为PUT请求
+         * (Yaf >= 2.2.9)
+         * 设置请求的动作名
+         *
+         * @param string $name
          *
          * @return Boolean
          */
-        public function isPut(){}
+        public function setActionName($name){}
 
         /**
-         * (Yaf >= 2.2.9) 
-         * 判断是否为HEAD请求
+         * (Yaf >= 2.2.9)
+         * 获取异常对象
          *
-         * @return Boolean
+         * 异常捕获模式下，在异常发生的情况时流程进入Error控制器的error动作时，获取当前发生的异常对象.
+         *
+         * @return Exception
          */
-        public function isHead(){}
+        public function getException(){}
 
         /**
-         * (Yaf >= 2.2.9) 
-         * 判断是否为Options请求
+         * (Yaf >= 2.2.9)
+         * 获取请求全部的参数
          *
-         * @return Boolean
+         * @return Array
          */
-        public function isOptions(){}
+        public function getParams(){}
 
         /**
-         * (Yaf >= 2.2.9) 
-         * 判断是否为CLI请求
-         *
-         * @return Boolean
-         */
-        public function isCli(){}
-
-        /**
-         * (Yaf >= 2.2.9) 
-         * 判断是否为AJAX请求
-         *
-         * @return Boolean
-         */
-        public function isXmlHttpRequest(){}
-
-        /**
-         * (Yaf >= 2.2.9) 
-         * 获取服务器$_SERVER全局变量中的值
-         *
-         * @param string $name 变量名
-         * @param mixed $default 默认值
-         *
-         * @return mixed
-         */
-        public function getServer($name, $default = null){}
-
-        /**
-         * (Yaf >= 2.2.9) 
-         * 获取环境变量$_ENV全局变量中的值
+         * (Yaf >= 2.2.9)
+         * 获取请求的参数
          *
          * @param string $name 变量名
          * @param string $default 默认值
          *
          * @return mixed
          */
-        public function getEnv($name, $default = null){}
+        public function getParam($name, $default = null){}
 
         /**
-         * (Yaf >= 2.2.9) 
+         * (Yaf >= 2.2.9)
          * 设置请求的参数
          * 当只有一个参数且为Array类型，如果存在对应的键值将覆盖
          *
@@ -1651,142 +1656,150 @@ namespace Yaf
         public function setParam($name, $value){}
 
         /**
-         * (Yaf >= 2.2.9) 
-         * 获取请求的参数
-         *
-         * @param string $name 变量名
-         * @param string $default 默认值
-         *
-         * @return mixed
-         */
-        public function getParam($name, $default = null){}
-
-        /**
-         * (Yaf >= 2.2.9) 
-         * 获取请求全部的参数
-         *
-         * @return Array
-         */
-        public function getParams(){}
-
-        /**
-         * (Yaf >= 2.2.9) 
-         * 获取异常对象
-         *
-         * 异常捕获模式下，在异常发生的情况时流程进入Error控制器的error动作时，获取当前发生的异常对象.
-         *
-         * @return \Exception
-         */
-        public function getException(){}
-
-        /**
-         * (Yaf >= 2.2.9) 
-         * 获取当前模块名
-         *
-         * @return String
-         */
-        public function getModuleName(){}
-
-        /**
-         * (Yaf >= 2.2.9) 
-         * 获取当前控制器名
-         *
-         * @return String
-         */
-        public function getControllerName(){}
-
-        /**
-         * (Yaf >= 2.2.9) 
-         * 获取当前动作名
-         *
-         * @return String
-         */
-        public function getActionName(){}
-
-        /**
-         * (Yaf >= 2.2.9) 
-         * 设置请求的模块名
-         *
-         * @param string $name 模块名
-         *
-         * @return Boolean
-         */
-        public function setModuleName($name){}
-
-        /**
-         * (Yaf >= 2.2.9) 
-         * 设置请求的控制器名
-         *
-         * @param string $name
-         *
-         * @return Boolean
-         */
-        public function setControllerName($name){}
-
-        /**
-         * (Yaf >= 2.2.9) 
-         * 设置请求的动作名
-         *
-         * @param string $name
-         *
-         * @return Boolean
-         */
-        public function setActionName($name){}
-
-        /**
-         * (Yaf >= 2.2.9) 
-         * 获取当前请求的方法
+         * (Yaf >= 2.2.9)
+         * 获取当前请求的类型, 可能的返回值为GET,POST,HEAD,PUT,CLI等.
          *
          * @return String
          */
         public function getMethod(){}
 
         /**
-         * (Yaf >= 2.2.9) 
+         * (Yaf >= 2.2.9)
          * 获取当前请求的请求
          *
          * @return String
          */
         public function getLanguage(){}
-
         /**
-         * (Yaf >= 2.2.9) 
-         * 设置请求的Base URI
+         * (Yaf >= 2.2.9)
+         * 获取$_GET中名为$name的参数值
          *
-         * @param string $baseuri
+         * @param string $name 变量名
+         * @param string $default 默认值
          *
-         * @return Request_Abstract
+         * @return mixed
          */
-        public function setBaseUri($baseuri){}
+        public function getQuery($name = null, $default = null){}
 
         /**
-         * (Yaf >= 2.2.9) 
-         * 获取请求的Base URI
+         * (Yaf >= 2.2.9)
+         * 获取$_POST中名为$name的参数值
          *
-         * @return String
+         * @param string $name 变量名
+         * @param string $default 默认值
+         *
+         * @return mixed
          */
-        public function getBaseUri(){}
+        public function getPost($name = null, $default = null){}
 
         /**
-         * (Yaf >= 2.2.9) 
-         * 获取请求的uri
+         * (Yaf >= 2.2.9)
+         * 获取环境变量$_ENV全局变量中的值
          *
-         * @return String
+         * @param string $name 变量名
+         * @param string $default 默认值
+         *
+         * @return mixed
          */
-        public function getRequestUri(){}
+        public function getEnv($name, $default = null){}
 
         /**
-         * (Yaf >= 2.2.9) 
-         * 设置请求的URI
+         * (Yaf >= 2.2.9)
+         * 获取服务器$_SERVER全局变量中的值
          *
-         * @param string $uri
+         * @param string $name 变量名
+         * @param mixed $default 默认值
          *
-         * @return Request_Abstract
+         * @return mixed
          */
-        public function setRequestUri($uri){}
+        public function getServer($name, $default = null){}
 
         /**
-         * (Yaf >= 2.2.9) 
+         * (Yaf >= 2.2.9)
+         * 获取$_COOKIE中名为$name的参数值
+         *
+         * @param string $name 变量名
+         *
+         * @return mixed
+         */
+        public function getCookie($name = null){}
+
+        /**
+         * (Yaf >= 2.2.9)
+         * 获取$_FILES中名为$name的参数值
+         *
+         * @param string $name 变量名
+         *
+         * @return mixed
+         */
+        public function getFiles($name = null){}
+
+        /**
+         * (Yaf >= 2.2.9)
+         * 判断是否为GET请求
+         *
+         * @return Boolean
+         */
+        public function isGet(){}
+
+        /**
+         * (Yaf >= 2.2.9)
+         * 判断是否为POST请求
+         *
+         * @return Boolean
+         */
+        public function isPost(){}
+
+        /**
+         * (Yaf >= 2.2.9)
+         * 判断是否为HEAD请求
+         *
+         * @return Boolean
+         */
+        public function isHead(){}
+
+        /**
+         * (Yaf >= 2.2.9)
+         * 判断是否为AJAX请求
+         *
+         * @return Boolean
+         */
+        public function isXmlHttpRequest(){}
+
+        /**
+         * (Yaf >= 2.2.9)
+         * 判断是否为PUT请求
+         *
+         * @return Boolean
+         */
+        public function isPut(){}
+
+        /**
+         * (Yaf >= 2.2.9)
+         * 判断是否为Delete请求
+         *
+         * @return Boolean
+         */
+        public function isDelete(){}
+
+        /**
+         * (Yaf >= 2.2.9)
+         * 判断是否为Options请求
+         *
+         * @return Boolean
+         */
+        public function isOptions(){}
+
+        /**
+         * (Yaf >= 2.2.9)
+         * 判断是否为CLI请求
+         *
+         * @return Boolean
+         */
+        public function isCli(){}
+
+        /**
+         * (Yaf >= 2.2.9)
          * 判断请求是否完成了分发
          *
          * @return Boolean
@@ -1794,7 +1807,7 @@ namespace Yaf
         public function isDispatched(){}
 
         /**
-         * (Yaf >= 2.2.9) 
+         * (Yaf >= 2.2.9)
          * 设置请求已经完成分发
          *
          * @return Boolean
@@ -1802,7 +1815,7 @@ namespace Yaf
         public function setDispatched(){}
 
         /**
-         * (Yaf >= 2.2.9) 
+         * (Yaf >= 2.2.9)
          * 判断请求是否完成了路由
          *
          * @return Boolean
@@ -1810,14 +1823,50 @@ namespace Yaf
         public function isRouted(){}
 
         /**
-         * (Yaf >= 2.2.9) 
+         * (Yaf >= 2.2.9)
          * 设置请求已经完成了路由
          *
-         * @return Request_Abstract
+         * @return Yaf_Request_Abstract
          */
         public function setRouted(){}
-    }
 
+
+        /**
+         * (Yaf >= 2.2.9)
+         * 设置请求的Base URI
+         *
+         * @param string $baseuri
+         *
+         * @return Yaf_Request_Abstract
+         */
+        public function setBaseUri($baseuri){}
+
+        /**
+         * (Yaf >= 2.2.9)
+         * 获取请求的Base URI
+         *
+         * @return String
+         */
+        public function getBaseUri(){}
+
+        /**
+         * (Yaf >= 2.2.9)
+         * 获取请求的uri
+         *
+         * @return String
+         */
+        public function getRequestUri(){}
+
+        /**
+         * (Yaf >= 2.2.9)
+         * 设置请求的URI
+         *
+         * @param string $uri
+         *
+         * @return Yaf_Request_Abstract
+         */
+        public function setRequestUri($uri){}
+    }
     /**
      * (Yaf >= 2.2.9) 
      * Class Response_Abstract
